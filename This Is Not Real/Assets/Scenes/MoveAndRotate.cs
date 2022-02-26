@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveAndRotate : MonoBehaviour
 {
-    [SerializeField]
-    private bool shouldRotate = false;
+    //[SerializeField]
+    //private bool shouldRotate = false;
    
     // Start is called before the first frame update
     void Start()
