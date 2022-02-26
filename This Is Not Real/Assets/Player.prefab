@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1940783126228484588}
   - component: {fileID: 1940783126228484579}
-  - component: {fileID: 3752257771984513428}
   - component: {fileID: 6460643351089770230}
   - component: {fileID: 4029450989788187607}
   m_Layer: 0
@@ -48,19 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
---- !u!114 &3752257771984513428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940783126228484590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0773586420a57e14eb8389b14f46a071, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vcam: {fileID: 0}
 --- !u!54 &6460643351089770230
 Rigidbody:
   m_ObjectHideFlags: 0
