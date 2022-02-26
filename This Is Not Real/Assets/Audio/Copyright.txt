@@ -1,0 +1,7 @@
+Title: 251652__seansecret__original-ambience-sound-unaltered.wav
+Author: SeanSecret
+Material: https://freesound.org/people/SeanSecret/sounds/251652/
+Copyright: CC BY 3.0
+https://creativecommons.org/licenses/by/3.0/
+Modifications: - Converted to .ogg file
+			   - Renamed to IndoorAmbience1
