@@ -9,6 +9,8 @@ public class Explosion : MonoBehaviour
     private float explosionRadius;
     [SerializeField]
     private float explosionForce;
+    [SerializeField]
+    LayerMask effectLayer;
 
 
     void Start()
@@ -20,7 +22,7 @@ public class Explosion : MonoBehaviour
     IEnumerator Explode()
     {
         yield return new WaitForSeconds(6);
-        Collider[] colliderList = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliderList = Physics.OverlapSphere(transform.position, explosionRadius, effectLayer.value);
         
         foreach (Collider collider in colliderList)
         {

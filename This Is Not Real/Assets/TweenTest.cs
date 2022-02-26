@@ -5,12 +5,16 @@ using UnityEngine;
 public class TweenTest : MonoBehaviour
 {
     private Transform originalPlace;
-    //private Rigidbody body;
-    // Start is called before the first frame update
+    private bool shouldGravitate = false;
+    private Rigidbody body;
+    private Transform gravityPoint;
+    float gravity = 9.8f;
+
     void Start()
     {
-        //body = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
         originalPlace = transform;
+        gravityPoint = GameObject.Find("GravityPoint").transform;
         StartCoroutine("Begin");
     }
 
@@ -23,13 +27,18 @@ public class TweenTest : MonoBehaviour
         transform.rotation = originalPlace.rotation;
 
         //body.constraints = RigidbodyConstraints.None; //RigidbodyConstraints.FreezeRotation;
-
+        yield return new WaitForSeconds(6);
+        GetComponent<Collider>().isTrigger = true;
+        shouldGravitate = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (shouldGravitate)
+        {
+            body.AddForce((gravityPoint.transform.position - transform.position).normalized * gravity);
+        }
     }
 }
