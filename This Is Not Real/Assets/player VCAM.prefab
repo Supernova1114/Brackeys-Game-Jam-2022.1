@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 1291290042817781217}
   - component: {fileID: 1291290042817781218}
   - component: {fileID: 1646263011}
+  - component: {fileID: 1646263012}
   m_Layer: 0
   m_Name: player VCAM
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7785888, y: 1}
+    m_SensorSize: {x: 1.7766323, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -145,3 +146,18 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   vcam: {fileID: 1291290042817781218}
   mouseSens: 100
+--- !u!114 &1646263012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291290042817781219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Offset: {x: 0, y: 0.55, z: 0}
+  m_ApplyAfter: 0
+  m_PreserveComposition: 0
