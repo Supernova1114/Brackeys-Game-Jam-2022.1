@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4202336621514153571}
   - component: {fileID: 4202336621514153596}
   - component: {fileID: 4202336621514153569}
-  - component: {fileID: 4202336621514153568}
+  - component: {fileID: 7817448284044125084}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -120,15 +120,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4202336621514153568
+--- !u!114 &7817448284044125084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4202336621514153597}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 664dc9dae06184746beeca23ac88cc9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 48c71f1e89916cd4b8a7edcc8d70cda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVCamObj: {fileID: 0}
+  canvasImage: {fileID: 0}
+  fadeSmooth: 4
+  fadeInterval: 0.02
+  fadeInOnSceneChange: 1

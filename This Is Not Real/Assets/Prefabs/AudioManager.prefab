@@ -44,4 +44,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456b2ee6eb58ab04b887f8abe749d9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: step1
+    clip: {fileID: 8300000, guid: ab41bb6169b811640b89ee0c77ee0ac0, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: step2
+    clip: {fileID: 8300000, guid: 0680afb62d87d9941a00fbd05cf2a30c, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step3
+    clip: {fileID: 8300000, guid: be9a5176fd2d988419d24299c43c25ef, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: step4
+    clip: {fileID: 8300000, guid: 98e8d0420769efe4984407d541e30899, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

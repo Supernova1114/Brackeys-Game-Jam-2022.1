@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  stepSoundInterval: 0.5
 --- !u!54 &6460643351089770230
 Rigidbody:
   m_ObjectHideFlags: 0
