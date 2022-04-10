@@ -6,9 +6,9 @@ using Cinemachine;
 public class MouseMovement : MonoBehaviour
 {
     [SerializeField]
-    Transform playerBody;
+    private Transform playerBody;
     [SerializeField]
-    CinemachineVirtualCamera vcam;
+    private CinemachineVirtualCamera vcam;
 
     public float mouseSens = 100f;
     float xRotate = 0;
@@ -18,10 +18,11 @@ public class MouseMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-    void Update()
+
+    private void FixedUpdate()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.fixedDeltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.fixedDeltaTime;
 
         xRotate -= mouseY;
         xRotate = Mathf.Clamp(xRotate, -90f, 90);

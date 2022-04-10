@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    private float mouseX;
+    private float mouseY;
 
     private Rigidbody rbody;
 
@@ -18,10 +20,20 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentInputVector;
     private Vector2 smoothInputVelocity;
 
+    //--------------------------------------
+
+    //Step sound cooldown
+    [SerializeField]
+    private float stepSoundCooldown;
+    private float stepCooldown;
+
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
-        
+        currentInputVector = Vector2.zero;
+        smoothInputVelocity = Vector2.zero;
+        stepCooldown = 0;
+
     }
 
     // Update is called once per frame
@@ -29,23 +41,42 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-        
     }
 
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        Vector2 movement = new Vector2(horizontal, vertical).normalized;
 
-        Vector2 targetVelocity = transform.rotation * new Vector2(movement.x, movement.z);
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, movement, ref smoothInputVelocity, smoothTime);
 
-        currentInputVector = Vector2.SmoothDamp(currentInputVector, targetVelocity, ref smoothInputVelocity, smoothTime);
-
-        Vector3 newVelocity = new Vector3(currentInputVector.x, 0, currentInputVector.y).normalized * movementSpeed;
+        Vector3 newVelocity = transform.rotation * new Vector3(currentInputVector.x, 0, currentInputVector.y) * movementSpeed;
         newVelocity.y = rbody.velocity.y;
 
         rbody.velocity = newVelocity;
 
+        PlayStepSound(movement);
 
-        //alskdjasdjawslkdjlskj
+
     }
+
+
+    void PlayStepSound(Vector2 movement)
+    {
+        if (movement.magnitude > 0)
+        {
+            if (stepCooldown <= 0)
+            {
+                int randNum = Random.Range(1, 5);
+                AudioManager.instance.PlayOneShot("step" + randNum);
+
+                stepCooldown = stepSoundCooldown;
+            }
+            else
+            {
+                stepCooldown -= Time.fixedDeltaTime;
+            }
+        }
+        
+    }
+
 }
