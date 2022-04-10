@@ -11,51 +11,41 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rbody;
 
     [SerializeField]
-    private float moveSpeed;
+    private float movementSpeed;
     [SerializeField]
-    private float stepSoundInterval;
-    private float stepSoundCoolDown;
+    private float smoothTime = 0.2f;
 
-    private void Start()
+    private Vector2 currentInputVector;
+    private Vector2 smoothInputVelocity;
+
+    void Start()
     {
         rbody = GetComponent<Rigidbody>();
-        stepSoundCoolDown = stepSoundInterval;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
-        if (Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0)
-        {
-            if (stepSoundCoolDown <= 0)
-            {
-                int randomNum = Random.Range(0, 4);
-                switch (randomNum)
-                {
-                    case 0: AudioManager.instance.PlayOneShot("step1"); break;
-                    case 1: AudioManager.instance.PlayOneShot("step2"); break;
-                    case 2: AudioManager.instance.PlayOneShot("step3"); break;
-                    case 3: AudioManager.instance.PlayOneShot("step4"); break;
-                }
-
-                stepSoundCoolDown = stepSoundInterval;
-            }
-            else
-            {
-                stepSoundCoolDown -= Time.deltaTime;
-            }
-        }
-        
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        // transform.position += 
-        Vector3 movement = transform.rotation * new Vector3(horizontal, 0, vertical) * moveSpeed;
-        rbody.velocity = new Vector3(movement.x, rbody.velocity.y, movement.z);
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+
+        Vector2 targetVelocity = transform.rotation * new Vector2(movement.x, movement.z);
+
+        currentInputVector = Vector2.SmoothDamp(currentInputVector, targetVelocity, ref smoothInputVelocity, smoothTime);
+
+        Vector3 newVelocity = new Vector3(currentInputVector.x, 0, currentInputVector.y).normalized * movementSpeed;
+        newVelocity.y = rbody.velocity.y;
+
+        rbody.velocity = newVelocity;
+
+
+        //alskdjasdjawslkdjlskj
     }
 }
